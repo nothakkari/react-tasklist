@@ -1,0 +1,132 @@
+/* Buttons */
+.taskItem__button {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #cecdcd;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color .2s ease;
+    text-decoration: none;
+    color: black;
+    transition: background-color .2s, color .2s ease;
+}
+
+/* Add Task Button */
+.taskItem__button.addTask:hover {
+    background-color: rgb(169, 169, 169);
+}
+
+.taskItem__button.addTask {
+    padding: 15px 40px;
+    background-color: rgb(211, 211, 211);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-right: 0;
+}
+
+
+
+/* Delete Task Button */
+.taskItem__button.delete:hover {
+    background-color: rgb(226, 84, 84);
+}
+
+
+/* Edit Task Button */
+.taskItem__button.edit:hover {
+    background-color: rgb(118, 118, 118);
+}
+/* ==================================================================== */
+
+
+
+/* Task Item Filters */
+.taskItem__filters span{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.taskItem__filters button {
+    padding: 5px 15px;
+    margin: 0 5px;
+    border: none;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color .2s ease;
+}
+
+.taskItem__filters button.active {
+    background-color: rgb(195, 195, 195)
+}
+
+.taskItem__filters button:hover {
+    background-color: rgb(169, 169, 169);
+}
+
+
+
+/* Task List Item */
+.taskItem {
+    margin: 30px 20px;
+    background-color: #e9e9ed;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: left;
+    border: 1px solid rgb(195, 195, 195);
+    position: relative;
+}
+
+.taskItem__action {
+    position: absolute;
+    top: 0;
+}
+
+.taskItem__info {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.taskItem__info .taskItem__taskDesc {
+    margin-top: 8px;
+    max-width: 480px;
+    overflow-x: none;
+}
+
+.taskItem__whenListEmpty {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 55%;
+    user-select: none;
+    color: #b7b7b7;
+    font-weight: bold;
+}
+
+/* Task List Tasks */
+.taskItem__tasks {
+    height: 370px;
+    overflow-y: scroll;
+}
+
+/* Task List Status */
+.taskItem__status {
+    display: flex;
+    align-items: center;
+}
+
+.taskItem__status.checkbox {
+    margin-right: 20px;
+}
+
+.taskItem__status.checkbox span {
+    margin-left: 5px;
+}
