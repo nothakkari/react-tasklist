@@ -1,0 +1,64 @@
+.edit-task-menu {
+    width: 550px;
+    min-height: 450px;
+    -webkit-box-shadow: 0px 10px 48px 6px rgba(0,0,0,0.23);
+    -moz-box-shadow: 0px 10px 48px 6px rgba(0,0,0,0.23);
+    box-shadow: 0px 10px 48px 6px rgba(0,0,0,0.23);
+    background: white;
+    border: 3px solid rgb(195, 195, 195);
+}
+
+.edit-task-menu h1 {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.edit-task-menu__taskInfo {
+    text-align: center;
+}
+
+.edit-task-menu__taskChange {
+    text-align: center;
+    margin: 20px auto;
+    width: 95%;
+}
+
+.edit-task-menu__taskChange.taskName {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-task-menu__taskChange textarea, input {
+    padding: 10px 5px;
+    margin: 10px 0;
+    resize: none;
+}
+
+.edit-task-menu__taskChange.taskDesc {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-task-menu button {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #cecdcd;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color .2s ease;
+    text-decoration: none;
+    color: black;
+    transition: background-color .2s ease;
+}
+
+.edit-task-menu button:hover {
+    background-color: rgb(169, 169, 169);
+}
+
+.PrevTaskDesc span{
+    width: 300px;
+}
