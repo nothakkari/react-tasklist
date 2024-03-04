@@ -7,18 +7,22 @@ import ModalCreateTask from "../ModalCreateTask/ModalCreateTask.jsx"
 
 const Task = () => {
     const [tasks, setTasks] = useState([]);
+    const [undoneTasks, setUndoneTasks] = useState([]);
+    const [doneTasks, setDoneTasks] = useState([]);
     const [filter, setFilter] = useState("all");
-    const [showNewTaskModal, setShowNewTaskModal] = useState(false);
-    const [newTaskName, setNewTaskName] = useState("");
-    const [newTaskDescription, setNewTaskDescription] = useState("");
+    const [showNewTaskModal, setShowNewTaskModal] = useState(false); // Добавляем состояние для модального окна
 
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
         setTasks(storedTasks);
+        setUndoneTasks(storedTasks.filter(task => !task.done));
+        setDoneTasks(storedTasks.filter(task => task.done));
     }, []);
 
     const handleTaskChange = (updatedTasks) => {
         setTasks(updatedTasks);
+        setUndoneTasks(updatedTasks.filter(task => !task.done));
+        setDoneTasks(updatedTasks.filter(task => task.done));
         localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     };
 
@@ -27,7 +31,7 @@ const Task = () => {
             id: tasks.length + 1,
             title: name || "Task Name",
             description: description || "Task Description",
-            done: false 
+            done: false
         };
     
         const updatedTasks = [...tasks, newTask];
@@ -40,17 +44,25 @@ const Task = () => {
         }
     };
 
-    const handleCheckboxChange = (taskId, doneValue) => {
+    const handleCheckboxChange = (taskId) => {
         const updatedTasks = tasks.map(task => {
             if (task.id === taskId) {
-                return { ...task, done: doneValue };
+                return { ...task, done: !task.done };
             }
             return task;
         });
-
+    
         handleTaskChange(updatedTasks);
+    
+        // Обновляем список задач в зависимости от текущего фильтра
+        if (filter === "done") {
+            setDoneTasks(updatedTasks.filter(task => task.done));
+            setUndoneTasks(updatedTasks.filter(task => !task.done));
+        } else if (filter === "undone") {
+            setDoneTasks(updatedTasks.filter(task => task.done));
+            setUndoneTasks(updatedTasks.filter(task => !task.done || (task.done && task.id === updatedTasks.length)));
+        }
     };
-
     const handleDeleteTask = (taskId) => {
         const updatedTasks = tasks.filter(task => task.id !== taskId);
         handleTaskChange(updatedTasks);
@@ -64,7 +76,7 @@ const Task = () => {
         if (filter === "done") {
             return task.done;
         } else if (filter === "undone") {
-            return !task.done || task.id === tasks.length; // Исключаем новую задачу из фильтрации, пока она не будет изменена пользователем
+            return !task.done;
         }
         return true;
     });
@@ -96,7 +108,7 @@ const Task = () => {
                                         <input
                                             type="checkbox"
                                             checked={task.done}
-                                            onChange={() => handleCheckboxChange(task.id, !task.done)}
+                                            onChange={() => handleCheckboxChange(task.id)}
                                         />
                                         <span>Done</span>
                                     </div>
@@ -106,7 +118,7 @@ const Task = () => {
                                         <input
                                             type="checkbox"
                                             checked={!task.done}
-                                            onChange={() => handleCheckboxChange(task.id, !task.done)}
+                                            onChange={() => handleCheckboxChange(task.id)}
                                         />
                                         <span>Undone</span>
                                     </div>
