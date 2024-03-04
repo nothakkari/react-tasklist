@@ -1,3 +1,5 @@
+import "../styles/AboutTask.css";
+
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
@@ -12,15 +14,15 @@ const AboutTask = () => {
   }, [taskId]);
 
   return (
-    <div>
+    <div className="about-task">
       <h1>About Task</h1>
       {task && (
-        <div>
+        <div className="about-task__info">
           <h3>{task.title}</h3>
           <p>{task.description}</p>
         </div>
       )}
-      <Link to="/">Back to Tasks</Link>
+      <button><Link className="reactLink" to="/">Back to Tasks</Link></button>
     </div>
   );
 }

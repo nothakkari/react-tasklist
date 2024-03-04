@@ -1,0 +1,34 @@
+.about-task {
+    width: 450px;
+    height: 400px;
+    background: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px solid rgb(195, 195, 195);
+}
+
+
+.about-task__info {
+    padding: 20px 0;
+}
+
+.about-task button {
+    padding: 5px 15px;
+    background-color: #cecdcd;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color .2s ease;
+    text-decoration: none;
+    color: black;
+    transition: background-color .2s, color .2s ease;
+}
+
+.about-task button:hover {
+    background-color: rgb(169, 169, 169);
+}
