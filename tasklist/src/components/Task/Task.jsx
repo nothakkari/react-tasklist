@@ -10,7 +10,7 @@ const Task = () => {
     const [undoneTasks, setUndoneTasks] = useState([]);
     const [doneTasks, setDoneTasks] = useState([]);
     const [filter, setFilter] = useState("all");
-    const [showNewTaskModal, setShowNewTaskModal] = useState(false); // Добавляем состояние для модального окна
+    const [showNewTaskModal, setShowNewTaskModal] = useState(false); 
 
     useEffect(() => {
         const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -54,7 +54,6 @@ const Task = () => {
     
         handleTaskChange(updatedTasks);
     
-        // Обновляем список задач в зависимости от текущего фильтра
         if (filter === "done") {
             setDoneTasks(updatedTasks.filter(task => task.done));
             setUndoneTasks(updatedTasks.filter(task => !task.done));
@@ -99,7 +98,7 @@ const Task = () => {
                             <div className="taskItem__info">
                                 <label>
                                     <div className="taskItem__taskName">{task.title}</div>
-                                    <div className="taskItem__taskDesc">{task.description}</div>
+                                    <div className="taskItem__taskDesc"><span>{task.description}</span></div>
                                 </label>
                             </div>
                             <div className="taskItem__status">

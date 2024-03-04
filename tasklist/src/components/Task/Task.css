@@ -96,8 +96,12 @@
 
 .taskItem__info .taskItem__taskDesc {
     margin-top: 8px;
-    max-width: 480px;
+    width: 480px;
     overflow-x: none;
+}
+
+.taskItem__taskDesc span {
+    width: 480px;
 }
 
 .taskItem__whenListEmpty {
