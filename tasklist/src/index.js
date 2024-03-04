@@ -1,8 +1,10 @@
 import React from 'react';
+
 import ReactDOM from 'react-dom/client';
+
 import './index.css';
 
-import Root from "./routes/root";
+import Root from "./root";
 import ErrorPage from "./error-page";
 
 import {
@@ -10,16 +12,26 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import EditTask from './routes/EditTask';
+import AboutTask from './routes/AboutTask';
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/:taskId/edit",
+    element: <EditTask />
+  },
+  {
+    path: "/:taskId",
+    element: <AboutTask />
+  }
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>
