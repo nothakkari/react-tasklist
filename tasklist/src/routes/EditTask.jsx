@@ -51,7 +51,7 @@ const EditTask = () => {
                         <label>Title:</label>
                         <input 
                             type="text" 
-                            name="title" 
+                             name="title" 
                             value={editedTask.title}
                             onChange={handleInputChange} 
                         />
